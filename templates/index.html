@@ -1,0 +1,176 @@
+<html>
+
+<head>
+    <title>hospital charges prediction model</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .image-1 {
+            width: 100%;
+            height: 400px;
+        }
+
+        .heading {
+            min-height: 60px;
+            background-color: #333;
+            border-radius: 30px;
+        }
+
+        .heading h1 {
+            font-size: 30px;
+            font-weight: bold;
+            padding: 20px;
+            font-family: sans-serif;
+            color: white;
+            text-align: center;
+
+        }
+
+        .from-sec {
+            background-color: #777;
+            height: 450px;
+        }
+
+        .pred {
+            padding-top: 80px;
+        }
+
+        input[type="text"] {
+            border: none;
+            padding: 10px;
+            width: 250px;
+            margin-right: 5px;
+            margin-bottom: 4px;
+
+        }
+
+        .btn {
+            margin-top: 50px;
+        }
+
+        input[type="submit"] {
+            color: white;
+            background-color: #333;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border: none;
+            height: 50px;
+            width: 150px;
+            border-radius: 50px;
+            padding: 10px;
+            margin-bottom: 40px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgb(255, 93, 93);
+            font-weight: bold;
+        }
+
+        .from-sec h1 {
+            color: white;
+            font-size: 30px;
+        }
+
+        .City {
+            border: none;
+            padding: 10px;
+            width: 250px;
+            margin-right: 5px;
+            margin-bottom: 4px;
+        }
+
+        .region {
+            border: none;
+            padding: 10px;
+            width: 250px;
+            margin-right: 5px;
+            margin-bottom: 4px;
+        }
+
+        .smoker {
+            border: none;
+            padding: 10px;
+            width: 250px;
+            margin-right: 5px;
+            margin-bottom: 4px;
+        }
+
+        .sex {
+            border: none;
+            padding: 10px;
+            width: 250px;
+            margin-right: 5px;
+            margin-bottom: 4px;
+        }
+
+        .footer h3 {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 25px;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="images">
+            <img src="static\images\house-banner.jpg" class="image-1">
+        </div>
+    </div>
+    <div class="container">
+        <div class="heading">
+            <h1>hospital charges prediction model</h1>
+        </div>
+    </div>
+    <div class="from-sec">
+        <center>
+            <form name="prediction" action="/predict" method="POST" class="pred">
+                <select class="sex" name="sex">
+                    {% for i in value %}
+                    <option>{{i}}</option>
+                    {% endfor %}
+                </select>
+                <select class="smoker" name="smoker">
+                    {% for i in value01 %}
+                    <option>{{i}}</option>
+                    {% endfor %}
+                </select>
+                <select class="region" name="region">
+                    {% for i in value02 %}
+                    <option>{{i}}</option>
+                    {% endfor %}
+                </select><br>
+                <input type="text" placeholder="age" name="age">
+                <input type="text" placeholder="bmi" name="bmi">
+                <input type="text" placeholder="children" name="children">
+                <div class="btn">
+                    <input type="submit" class="submit" value="Predict">
+                </div>
+                <div>
+                    <h1> {{ prediction_text }}</h1>
+                </div>
+
+            </form>
+        </center>
+    </div>
+    <div>
+        <h6> </h6>
+    </div>
+    <div class="footer">
+        <h3>
+            Delivery Contact:
+            harshitpatel8980@gmail.com<br>
+        </h3>
+    </div>
+</body>
+
+</html>
